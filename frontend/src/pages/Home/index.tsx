@@ -1,8 +1,8 @@
-import Menu from "../../components/Menu";
+import Menu from "components/Menu";
 
 const Home = () => {
   return (
-    <div>
+    <div className="container mx-auto">
       <h1 className="text-3xl font-bold">Šta se jede?</h1>
       <Menu />
     </div>

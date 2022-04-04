@@ -2,41 +2,30 @@
 
 Šta se jede? - završni rad u sklopu projekta za LUMEN Development 2022
 
-## Instalacija projekta
+## Upute
 
-instaliraj [nodejs](https://nodejs.org/en/)
+- u `backend` folderu nalazi se expressjs app koja vraca server renderani html
+- u `frontend` folderu nalazi se react frontend koji nismo sigurni hocemo li uopce koristiti jer vecina tima ne zna koristiti react a nemamo bas previse vremena
+- u `stranica` folderu nalazi se html i css po prvotnom dizajnu iz figme
 
-```
-git clone https://github.com/lukahabus/zavrsni-rad
-cd zavrsni-rad
-
-cd backend
-npm install
-
-cd ..
-
-cd frontend
-npm install
-```
-
-## Pokretanje projekta
-
-backend i frontend pokrenuti u zasebnim konzolnim prozorima
-
-### Backend
+## Pokretanje expressjs
 
 ```
 cd backend
+npm install
 npm run watch
 ```
 
-backend sada radi na <http://localhost:3001>
+expressjs app sada radi na <http://localhost:3000>
 
-### Frontend
+## Pokretanje react frontend
+
+potrebno pokrenuti expressjs app prije, nakon toga (u drugom konzolnom prozoru):
 
 ```
 cd frontend
-npm run start
+npm install
+npm start
 ```
 
-frontend sada radi na <http://localhost:3000>
+react app sada radi na <http://localhost:3001>

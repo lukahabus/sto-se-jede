@@ -53,7 +53,7 @@ async function scrape_menu_st(): Promise<Canteen[]> {
       }
 
       return {
-        name: meal,
+        name: meal === "lunch" ? "Ručak" : "Večera",
         dishes: [...new Set(dishes)].map(addNutritionalData),
       };
     }),
