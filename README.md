@@ -15,7 +15,7 @@ npm install
 npm run watch
 ```
 
-expressjs app sada radi na <http://localhost:3000>
+expressjs app sada radi na <http://localhost:3001>
 
 ## Pokretanje react frontend
 
@@ -27,4 +27,4 @@ npm install
 npm start
 ```
 
-react app sada radi na <http://localhost:3001>
+react app sada radi na <http://localhost:3000>
