@@ -3,7 +3,12 @@ import cors from "cors";
 import nunjucks from "nunjucks";
 import memoize from "memoizee";
 
-import { scrape_menu } from "./scrape_menu";
+import {
+  scrape_menu,
+  scrape_menu_st,
+  scrape_menu_zg,
+  scrape_menu_vz,
+} from "./scrape_menu";
 
 const app = express();
 
@@ -20,18 +25,22 @@ const cachedMenu = memoize(scrape_menu, {
   preFetch: true,
 });
 
-/*** web handlers ****************************/
-
-app.get("/", async (req, res) => {
-  res.render("index.njk", { menu: await cachedMenu() });
-});
-
-/*** api handlers ****************************/
-
 app.get("/api/menu", async (req, res) => {
   res.json(await cachedMenu());
 });
 
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000!");
+app.get("/api/menu/st", async (req, res) => {
+  res.json(await scrape_menu_st());
+});
+
+app.get("/api/menu/zg", async (req, res) => {
+  res.json(await scrape_menu_zg());
+});
+
+app.get("/api/menu/vz", async (req, res) => {
+  res.json(await scrape_menu_vz());
+});
+
+app.listen(3001, () => {
+  console.log("Server is listening on port 3001!");
 });

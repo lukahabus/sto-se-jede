@@ -1,0 +1,230 @@
+:root {
+  /*   color variables */
+  --clr-primary: #d50000;
+  --clr-primary-hover: #29e6a7;
+  --clr-primary-dark: #039d69;
+  --clr-gray100: #f0f7f8;
+  --clr-gray200: #cfd8dc;
+  --clr-gray300: #a7b7be;
+  --clr-gray400: #6b7e86;
+  --clr-gray500: #425a65;
+
+  /*   border radius */
+  --radius: 0.2rem;
+}
+
+.icon-1-1 {
+  opacity: 200%;
+  background-color: black;
+  z-index: 3;
+  position: absolute;
+}
+.recipe-nav {
+  background: linear-gradient(180deg, #ffebc2 0%, #feffe9 100%);
+  text-align: center;
+  padding: 0 1rem;
+  display: flex;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-family: Sen;
+}
+
+.recipefullviewwrapper {
+  position: relative;
+  padding-top: 180px;
+  display: flex;
+  border:rgba(255, 246, 215, 0);
+  
+}
+.recipefullviewwrapper-container {
+  position: relative;
+  padding-top: 200px;
+  display: flex;
+  background: linear-gradient(180deg, #ffebc2 0%, #feffe9 100%);
+}
+
+.recipe-tag {
+  display: inline-flex;
+  font-family: "Sen";
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.recipe-tag2 {
+  display: inline-flex;
+  font-family: "Sen";
+  font-weight: 500;
+  font-size: 30px;
+}
+/* Screenshot 2022-05-07 at 01.48 3 */
+.img1 {
+  display: inline-flex;
+  height: 500px;
+  width: 500px;
+  padding: 50px 50px 50px 50px;
+}
+/* avocado-toast-egg 2 */
+.img2 {
+  display: inline-flex;
+  height: 500px;
+  width: 500px;
+  padding: 50px 50px 50px 50px;
+}
+/* Header */
+.header3 {
+  height: 200px;
+  border-radius: 16px;
+}
+
+.img3 {
+  position: absolute;
+  left: 38.33%;
+  right: 37.92%;
+  top: 72.07%;
+  bottom: 13.28%;
+}
+.textbox1 {
+
+  font-family: "Sen";
+  font-weight: 80;
+  font-size: 22px;
+  line-height: 50px;
+  text-align: center;
+  opacity: 100%;
+  color: #343333;
+  background: radial-gradient(
+    321.57% 321.57% at 50% 50%,
+    #fff6d7 0%,
+    rgba(255, 246, 215, 0) 100%
+  );
+  opacity: 0.86;
+  border-radius: 16px;
+}
+
+.avocado2div {
+  position: absolute;
+  z-index: -5;
+  width: 300px;
+  height: 250px;
+
+
+}
+
+.textbox2 {
+  display: flex;
+  font-family: "Sen";
+  font-weight: 100;
+  font-size: 22px;
+  line-height: 50px;
+  text-align: center;
+  opacity: 100%;
+  color: #343333;
+  z-index: 1;
+  left: 100px;
+  bottom: -1150px;
+  background: radial-gradient(
+    321.57% 321.57% at 50% 50%,
+    #fff6d7 0%,
+    rgba(255, 246, 215, 0) 100%
+  );
+  opacity: 0.86;
+  border-radius: 16px;
+}
+
+.textbox3 {
+  font-family: "Sen";
+  font-weight: 100;
+  font-size: 32px;
+  line-height: 50px;
+  text-align: right;
+  color: #343333;
+  height: fit-content;
+  bottom: -800px;
+  opacity: 0.86;
+  border-radius: 16px;
+  background: radial-gradient(
+    321.57% 321.57% at 50% 50%,
+    #fff6d7 0%,
+    rgba(255, 246, 215, 0) 100%
+  );
+  opacity: 0.86;
+  border-radius: 16px;
+}
+/* ----------------------------------------------------------------------------------------- */
+/* Šta se jede? */
+/* Šta se jede? */
+
+.recipe-body {
+  font-family: Oxygen, sans-serif;
+  margin: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+  grid-gap: 1.5rem;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.card {
+  overflow: hidden;
+  box-shadow: 0px 2px 20px var(--clr-gray200);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 200ms ease-in;
+  width: 270px;
+
+  &__image {
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+    width: 900px;
+  }
+
+  &__title {
+    padding: 1rem;
+  }
+
+  &__description {
+    padding: 0 1rem;
+  }
+
+  &__btn {
+    padding: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid var(--clr-primary);
+    background: transparent;
+    color: var(--clr-primary);
+    border-radius: var(--radius);
+    transition: background 200ms ease-in, color 200ms ease-in;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &:hover &__btn {
+    background: var(--clr-primary);
+    color: white;
+  }
+}
+
+.rest-menu-h1 {
+  background: linear-gradient(180deg, #ffebc2 0%, #feffe9 100%);
+  text-align: center;
+  padding: 0 1rem;
+  display: flex;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-family: Sen;
+  border-radius: 10px;
+}

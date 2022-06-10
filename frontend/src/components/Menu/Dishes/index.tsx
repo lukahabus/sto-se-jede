@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Dish } from "types";
+import "../../Menu/menu.scss";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -20,7 +21,15 @@ function sortDishes(dishes: Dish[], sort: string, k = 1) {
   return tmp;
 }
 
-const Dishes = ({ dishes }: { dishes: Dish[] }) => {
+const Dishes = ({
+  dishes,
+  handleAdd,
+  handleRemove,
+}: {
+  dishes: Dish[];
+  handleAdd: any;
+  handleRemove: any;
+}) => {
   const [sort, setSort] = useState("name");
   const [sortedDishes, setSortedDishes] = useState(sortDishes(dishes, sort));
 
@@ -30,39 +39,45 @@ const Dishes = ({ dishes }: { dishes: Dish[] }) => {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
-      <div className="-mx-4 mt-10 ring-1 ring-gray-300 sm:-mx-6 md:mx-0 md:rounded-lg">
-        <table className="min-w-full divide-y divide-gray-300">
+      <div className="-mx-4 mt-10 ring-1 ring-gray-600 sm:-mx-6 md:mx-0 md:rounded-lg">
+        <table className="min-w-full divide-y divide-gray-600">
           <thead>
             <tr>
               <th
                 scope="col"
                 className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
               >
-                Jelo
+                <h2 style={{ fontWeight: "400", fontSize: "40px" }}>Jelo</h2>
               </th>
               <th
                 scope="col"
                 className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
               >
-                Energija
+                <h2 style={{ fontWeight: "400", fontSize: "30px" }}>
+                  Energija
+                </h2>
               </th>
               <th
                 scope="col"
                 className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
               >
-                Ugljikohidrati
+                <h2 style={{ fontWeight: "400", fontSize: "30px" }}>
+                  Ugljikohidrati
+                </h2>
               </th>
               <th
                 scope="col"
                 className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
               >
-                Proteini
+                <h2 style={{ fontWeight: "400", fontSize: "30px" }}>
+                  Proteini
+                </h2>
               </th>
               <th
                 scope="col"
                 className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
               >
-                Masti
+                <h2 style={{ fontWeight: "400", fontSize: "30px" }}>Masti</h2>
               </th>
               <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
                 <span className="sr-only">Select</span>
@@ -78,10 +93,13 @@ const Dishes = ({ dishes }: { dishes: Dish[] }) => {
                     "relative py-4 pl-4 sm:pl-6 pr-3 text-sm"
                   )}
                 >
-                  <div className="font-medium text-gray-900">{dish.name}</div>
+                  <div className="font-medium text-gray-900">
+                    <div style={{ fontWeight: "400", fontSize: "20px" }}>
+                      {dish.name}
+                    </div>
+                  </div>
                   <div className="mt-1 flex flex-col text-gray-500 sm:block lg:hidden">
-                    <div>mem / cpu</div>
-                    <div>storage</div>
+                 
                   </div>
                   {dishIdx !== 0 ? (
                     <div className="absolute right-0 left-6 -top-px h-px bg-gray-200" />
@@ -93,7 +111,9 @@ const Dishes = ({ dishes }: { dishes: Dish[] }) => {
                     "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
                   )}
                 >
-                  {dish.energy} kcal
+                  <div style={{ fontWeight: "400", fontSize: "20px" }}>
+                    {dish.energy} kcal
+                  </div>
                 </td>
                 <td
                   className={classNames(
@@ -101,7 +121,9 @@ const Dishes = ({ dishes }: { dishes: Dish[] }) => {
                     "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
                   )}
                 >
-                  {dish.carbohydrates} g
+                  <div style={{ fontWeight: "400", fontSize: "20px" }}>
+                    {dish.carbohydrates} g
+                  </div>
                 </td>
                 <td
                   className={classNames(
@@ -109,7 +131,9 @@ const Dishes = ({ dishes }: { dishes: Dish[] }) => {
                     "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
                   )}
                 >
-                  {dish.proteins} g
+                  <div style={{ fontWeight: "400", fontSize: "20px" }}>
+                    {dish.proteins} g
+                  </div>
                 </td>
                 <td
                   className={classNames(
@@ -117,7 +141,9 @@ const Dishes = ({ dishes }: { dishes: Dish[] }) => {
                     "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
                   )}
                 >
-                  {dish.fat} g
+                  <div style={{ fontWeight: "400", fontSize: "20px" }}>
+                    {dish.fat} g
+                  </div>
                 </td>
                 <td
                   className={classNames(
@@ -127,9 +153,17 @@ const Dishes = ({ dishes }: { dishes: Dish[] }) => {
                 >
                   <button
                     type="button"
-                    className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-30"
+                    className="listbutton"
+                    onClick={() => handleRemove(dish)}
                   >
-                    Select<span className="sr-only">, {dish.name}</span>
+                    Ukloni<span className="sr-only">, {dish.name}</span>
+                  </button>{" "}
+                  <button
+                    type="button"
+                    className="listbutton2"
+                    onClick={() => handleAdd(dish)}
+                  >
+                    Dodaj<span className="sr-only">, {dish.name}</span>
                   </button>
                   {dishIdx !== 0 ? (
                     <div className="absolute right-6 left-0 -top-px h-px bg-gray-200" />
@@ -142,6 +176,7 @@ const Dishes = ({ dishes }: { dishes: Dish[] }) => {
       </div>
       <div>
         <select defaultValue={sort} onChange={(e) => setSort(e.target.value)}>
+          <option value="">Meni</option>
           <option value="name">Jelo A-Z</option>
           <option value="proteins">Proteini više prema manje</option>
           <option value="energy">Kalorije više prema manje</option>

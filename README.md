@@ -1,12 +1,11 @@
 # zavrsni-rad
 
-Šta se jede? - završni rad u sklopu projekta za LUMEN Development 2022
+Što se jede? - Progresivna web aplikacija za pregled dnevne ponude u menzi i nutricionističkih vrijednosti
 
 ## Upute
 
 - u `backend` folderu nalazi se expressjs app koja vraca server renderani html
-- u `frontend` folderu nalazi se react frontend koji nismo sigurni hocemo li uopce koristiti jer vecina tima ne zna koristiti react a nemamo bas previse vremena
-- u `stranica` folderu nalazi se html i css po prvotnom dizajnu iz figme
+- u `frontend` folderu nalazi se react frontend
 
 ## Pokretanje expressjs
 

@@ -61,7 +61,48 @@ async function scrape_menu_st(): Promise<Canteen[]> {
 }
 
 async function scrape_menu_zg(): Promise<Canteen[]> {
-  return [];
+  const scrape_cassandra = async () => {
+    const res = await fetch("https://www.cassandra.hr/studentski-menu/");
+    const html = await res.text();
+    const dom = new JSDOM(html);
+
+    const data =
+      dom.window.document.querySelector("article")?.textContent || "";
+    const dishes = data
+      .split("\n")
+      .filter((l) => /^[^\s]+/.test(l))
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .filter((dish) => dish.indexOf("MENU") === -1)
+      .filter((dish) => dish.indexOf("202") === -1)
+      .map(addNutritionalData);
+
+    return {
+      name: "Cassandra",
+      menu: [{ name: "Ručak", dishes }],
+    };
+  };
+
+  const scrape_odeon = async () => {
+    const res = await fetch("https://odeon.hr/dnevni-meni-studentska-menza/");
+    const html = await res.text();
+    const dom = new JSDOM(html);
+
+    const data =
+      dom.window.document.querySelector(".entry-content")?.textContent || "";
+    const dishes = data
+      .split("\n")
+      .filter((l) => /^[^\s]+/.test(l))
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .filter((dish) => dish.indexOf("Menu") === -1)
+      .map(addNutritionalData);
+
+    return {
+      name: "Odeon",
+      menu: [{ name: "Ručak", dishes }],
+    };
+  };
+
+  return [await scrape_cassandra(), await scrape_odeon()];
 }
 
 async function scrape_menu_vz(): Promise<Canteen[]> {
@@ -74,12 +115,14 @@ async function scrape_menu_vz(): Promise<Canteen[]> {
   ];
 
   const extractDishes = (html: string) => {
-    return html
-      .split("\n")
-      .filter((l) => /^[^\s]+/.test(l))
-      .filter((v, i, a) => a.indexOf(v) === i)
-      .sort((a, b) => a.localeCompare(b))
-      .map(addNutritionalData);
+    return (
+      html
+        .split("\n")
+        .filter((l) => /^[^\s]+/.test(l))
+        .filter((v, i, a) => a.indexOf(v) === i)
+        // .sort((a, b) => a.localeCompare(b))
+        .map(addNutritionalData)
+    );
   };
 
   const canteens = urls.map(async (url) => {
@@ -120,4 +163,4 @@ async function scrape_menu(): Promise<City[]> {
   ];
 }
 
-export { scrape_menu };
+export { scrape_menu, scrape_menu_zg, scrape_menu_st, scrape_menu_vz };

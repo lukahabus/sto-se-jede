@@ -1,0 +1,31 @@
+.plate-menu{
+    position: absolute;
+    left: 1700px;
+    top: -20px;
+}
+.navbar-container{
+   background: linear-gradient(180deg, #FFEBC2 0%, #FEFFE9 100%);;
+    text-align: center;
+    position: fixed;
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+}
+.navbar-title{
+    font-size: 30px;
+    font-family: Sen;
+
+    
+}
+.cart-icon{
+    z-index: 2;
+    display:flex;
+   
+
+}
+

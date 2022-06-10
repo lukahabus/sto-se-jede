@@ -1,9 +1,0 @@
-<select class="form-select form-select-lg" id="menu-select">
-  {% for city in menu %}
-  <optgroup label="{{ city.name }}">
-    {% for canteen in city.canteens %}
-    <option data-city="{{ city.name }}">{{ canteen.name }}</option>
-    {% endfor %}
-  </optgroup>
-  {% endfor %}
-</select>
