@@ -1,6 +1,6 @@
-# zavrsni-rad
+# Što se jede?
 
-Što se jede? - Progresivna web aplikacija za pregled dnevne ponude u menzi i nutricionističkih vrijednosti
+Progresivna web aplikacija za pregled dnevne ponude u menzi i nutricionističkih vrijednosti
 
 ## Upute
 
